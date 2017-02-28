@@ -51,7 +51,7 @@ $(function(){
             legend: {
                 bottom: 10,
                 left: 'center',
-                data: ['日K']
+                data: ['日K','MA5', 'MA10', 'MA20', 'MA30']
             },
             tooltip: {
                 trigger: 'axis',

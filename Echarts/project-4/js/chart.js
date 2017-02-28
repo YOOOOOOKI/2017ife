@@ -19,20 +19,21 @@ $(function(){
     };
 
     function calculateMA(dayCount, data) {
-    var result = [];
-    for (var i = 0, len = data.values.length; i < len; i++) {
-        if (i < dayCount) {
-            result.push('-');
-            continue;
-        }
-        var sum = 0;
-        for (var j = 0; j < dayCount; j++) {
-            sum += data.values[i - j][1];
-        }
-        result.push(+(sum / dayCount).toFixed(3));
-    }
-    return result;
-}
+			var result = [];
+			for (var i = 0, len = data.values.length; i < len; i++) {
+				if (i < dayCount) {
+					result.push('-');
+					continue;
+				}
+				var sum = 0;
+				for (var j = 0; j < dayCount; j++) {
+					sum += parseFloat(data.values[i - j][1]);
+					console.log(typeof sum);
+				}
+				result.push(+(sum / dayCount).toFixed(3));
+			}
+			return result;
+		}
 
     var myChart = echarts.init(document.getElementById('chart'));
 
@@ -172,42 +173,42 @@ $(function(){
                     }
                 }
             },
-            {
-                name: 'MA5',
-                type: 'line',
-                data: calculateMA(5, data),
-                smooth: true,
-                lineStyle: {
-                    normal: {opacity: 0.5}
-                }
-            },
-            {
-                name: 'MA10',
-                type: 'line',
-                data: calculateMA(10, data),
-                smooth: true,
-                lineStyle: {
-                    normal: {opacity: 0.5}
-                }
-            },
-            {
-                name: 'MA20',
-                type: 'line',
-                data: calculateMA(20, data),
-                smooth: true,
-                lineStyle: {
-                    normal: {opacity: 0.5}
-                }
-            },
-            {
-                name: 'MA30',
-                type: 'line',
-                data: calculateMA(30, data),
-                smooth: true,
-                lineStyle: {
-                    normal: {opacity: 0.5}
-                }
-            },
+       		{
+			name: 'MA5',
+			type: 'line',
+			data: calculateMA(5, data),
+			smooth: true,
+				lineStyle: {
+					normal: {opacity: 0.5}
+				}
+			},
+			{
+			name: 'MA10',
+			type: 'line',
+			data: calculateMA(10, data),
+			smooth: true,
+				lineStyle: {
+					normal: {opacity: 0.5}
+				}
+			},
+			{
+			name: 'MA20',
+			type: 'line',
+			data: calculateMA(20, data),
+			smooth: true,
+				lineStyle: {
+					normal: {opacity: 0.5}
+				}
+			},
+			{
+			name: 'MA30',
+			type: 'line',
+			data: calculateMA(30, data),
+			smooth: true,
+				lineStyle: {
+					normal: {opacity: 0.5}
+				}
+			},   	
             {
                 name: 'Volumn',
                 type: 'bar',
